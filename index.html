@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>How many heads can you get?</title>
+  <link rel="icon" href="heads.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <script>
+    $(document).ready(function() {
+      var headsInARow = 0;
+      var tailsInARow = 0;
+      var bestHeads = 0;
+      var bestTails = 0;
+
+      $("#heads").on("click", function() {
+        var randNum = Math.random()
+        if (randNum < 0.5) {
+          $("#heads").attr("src", "heads.png");
+          headsInARow++;
+          tailsInARow = 0;
+        } else {
+          $("#heads").attr("src", "tails.png");
+          headsInARow = 0;
+          tailsInARow++;
+        }
+        bestHeads = Math.max(bestHeads, headsInARow);
+        bestTails = Math.max(bestTails, tailsInARow);
+        
+        $("#headsInARow").html(headsInARow);
+        $("#tailsInARow").html(tailsInARow);
+        $("#bestHeads").html(bestHeads);
+        $("#bestTails").html(bestTails);
+      });
+    });
+  </script>
+  <div class="container-fluid">
+    <h1 class="text-center">How many heads can you get?</h1>
+    <img id="heads" class="img-responsive" src="heads.png" alt="heads">
+    <h3>Number of heads in a row:</h3>
+    <h3 id="headsInARow">0</h3>
+    <h3>Best:</h3>
+    <h3 id="bestHeads">0</h3>
+    <h3>Number of tails in a row:</h3>
+    <h3 id="tailsInARow">0</h3>
+    <h3>Best:</h3>
+    <h3 id="bestTails">0</h3>
+  </div>
+</body>
+</html>
