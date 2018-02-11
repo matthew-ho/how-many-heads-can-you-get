@@ -27,7 +27,7 @@
         }
         bestHeads = Math.max(bestHeads, headsInARow);
         bestTails = Math.max(bestTails, tailsInARow);
-        
+
         $("#headsInARow").html(headsInARow);
         $("#tailsInARow").html(tailsInARow);
         $("#bestHeads").html(bestHeads);
@@ -37,7 +37,7 @@
   </script>
   <div class="container-fluid">
     <h1 class="text-center">How many heads can you get?</h1>
-    <img id="heads" class="img-responsive" src="heads.png" alt="heads">
+    <a title="Click to flip!" href="#"><img id="heads" class="img-responsive" src="heads.png" alt="heads"></a>
     <h3>Number of heads in a row:</h3>
     <h3 id="headsInARow">0</h3>
     <h3>Best:</h3>
